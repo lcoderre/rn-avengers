@@ -1,18 +1,16 @@
-var api = require("marvel-api");
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'; 
+import { StyleSheet, Text, View, AppRegistry } from 'react-native';
+import CharacterDetails from './CharacterDetails';
+import CharacterList from './CharacterList';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reloaded.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import {
+  StackNavigator,
+} from 'react-navigation';
+
+const App = StackNavigator({
+  CharacterList: { screen: CharacterList },
+  CharacterDetails: { screen: CharacterDetails },
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -22,3 +20,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App
